@@ -2,35 +2,197 @@
 <html lang="id">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#111827">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="OTOPROJECT WMS">
-<link rel="manifest" href="manifest.json">
-<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
 <title>OTOPROJECT WMS</title>
+
 <style>
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Arial,sans-serif;background:#f3f4f6;color:#111827}body{display:flex;align-items:center;justify-content:center;padding:24px}.card{width:min(420px,100%);background:#fff;border-radius:24px;padding:32px 24px;box-shadow:0 12px 40px rgba(0,0,0,.12);text-align:center}.logo{width:96px;height:96px;margin:0 auto 18px}.title{font-size:25px;font-weight:800;margin-bottom:6px}.sub{font-size:14px;color:#6b7280;margin-bottom:28px}.btn{display:block;width:100%;padding:15px 18px;border:0;border-radius:13px;background:#111827;color:#fff;font-size:16px;font-weight:700;text-decoration:none;cursor:pointer;margin-bottom:12px}.btn.secondary{background:#e5e7eb;color:#111827}.hint{font-size:12px;color:#6b7280;line-height:1.55;margin-top:18px}.status{font-size:13px;margin-top:12px;min-height:20px}
+*{box-sizing:border-box}
+
+html{
+  margin:0;
+  width:100%;
+  min-height:100%;
+  background:#f3f4f6;
+}
+
+body{
+  margin:0;
+  width:100%;
+  min-height:100dvh;
+  min-height:100vh;
+  padding:
+    max(16px, env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right))
+    max(16px, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:Arial,sans-serif;
+  background:#f3f4f6;
+  color:#111827;
+}
+
+.card{
+  width:100%;
+  max-width:420px;
+  background:#fff;
+  border-radius:24px;
+  padding:clamp(24px,6vw,32px) clamp(18px,6vw,24px);
+  box-shadow:0 12px 40px rgba(0,0,0,.12);
+  text-align:center;
+}
+
+.logo{
+  display:block;
+  width:clamp(72px,22vw,96px);
+  height:clamp(72px,22vw,96px);
+  margin:0 auto 18px;
+}
+
+.title{
+  font-size:clamp(22px,6vw,25px);
+  line-height:1.2;
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+.sub{
+  font-size:clamp(13px,3.8vw,14px);
+  line-height:1.4;
+  color:#6b7280;
+  margin-bottom:26px;
+}
+
+.btn{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  min-height:52px;
+  padding:14px 18px;
+  border:0;
+  border-radius:13px;
+  background:#111827;
+  color:#fff;
+  font-size:16px;
+  font-weight:700;
+  text-decoration:none;
+  cursor:pointer;
+  margin-bottom:12px;
+  -webkit-tap-highlight-color:transparent;
+}
+
+.btn:active{
+  transform:scale(.99);
+}
+
+.btn.secondary{
+  background:#e5e7eb;
+  color:#111827;
+}
+
+.hint{
+  font-size:12px;
+  line-height:1.55;
+  color:#6b7280;
+  margin-top:18px;
+}
+
+.status{
+  font-size:13px;
+  line-height:1.4;
+  margin-top:12px;
+  min-height:20px;
+}
+
+@media (max-height:600px){
+  body{
+    align-items:flex-start;
+    padding-top:max(14px, env(safe-area-inset-top));
+    padding-bottom:max(14px, env(safe-area-inset-bottom));
+  }
+
+  .card{
+    margin:8px 0;
+    padding:20px 18px;
+  }
+
+  .logo{
+    width:64px;
+    height:64px;
+    margin-bottom:12px;
+  }
+
+  .sub{
+    margin-bottom:18px;
+  }
+
+  .hint{
+    margin-top:12px;
+  }
+}
 </style>
 </head>
+
 <body>
 <main class="card">
-  <img class="logo" src="icon.svg" alt="OTOPROJECT WMS">
+  <img class="logo" src="./icon.svg" alt="OTOPROJECT WMS">
+
   <div class="title">OTOPROJECT WMS</div>
   <div class="sub">Warehouse Management System</div>
-  <a class="btn" href="https://script.google.com/macros/s/AKfycbyFfQIe3gpKxWBDbh3dLzb3hqJlRnPXsfr_J0Z1WOTrAAoN6HTVwb6LJBZbgbpOsLWt/exec">BUKA WMS</a>
-  <button id="installBtn" class="btn secondary" hidden>INSTALL KE HOME SCREEN</button>
+
+  <a
+    class="btn"
+    href="https://script.google.com/macros/s/AKfycbyFfQIe3gpKxWBDbh3dLzb3hqJlRnPXsfr_J0Z1WOTrAAoN6HTVwb6LJBZbgbpOsLWt/exec"
+  >BUKA WMS</a>
+
+  <button id="installBtn" class="btn secondary" hidden>
+    INSTALL KE HOME SCREEN
+  </button>
+
   <div id="status" class="status"></div>
-  <div class="hint">Jika tombol install tidak muncul, gunakan menu browser Chrome → Tambahkan ke layar utama.</div>
+
+  <div class="hint">
+    Jika tombol install tidak muncul, gunakan menu browser Chrome →
+    Tambahkan ke layar utama.
+  </div>
 </main>
+
 <script>
-if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').catch(()=>{});}
-let deferredPrompt=null;
-window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;document.getElementById('installBtn').hidden=false;});
-document.getElementById('installBtn').addEventListener('click',async()=>{if(!deferredPrompt)return;deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;document.getElementById('installBtn').hidden=true;});
-window.addEventListener('appinstalled',()=>{document.getElementById('status').textContent='OTOPROJECT WMS berhasil ditambahkan ke Home Screen.';});
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("./sw.js").catch(() => {});
+}
+
+let deferredPrompt = null;
+
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  deferredPrompt = event;
+  document.getElementById("installBtn").hidden = false;
+});
+
+document.getElementById("installBtn").addEventListener("click", async () => {
+  if (!deferredPrompt) return;
+
+  deferredPrompt.prompt();
+  await deferredPrompt.userChoice;
+
+  deferredPrompt = null;
+  document.getElementById("installBtn").hidden = true;
+});
+
+window.addEventListener("appinstalled", () => {
+  document.getElementById("status").textContent =
+    "OTOPROJECT WMS berhasil ditambahkan ke Home Screen.";
+});
 </script>
 </body>
 </html>
